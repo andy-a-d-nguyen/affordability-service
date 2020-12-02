@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 const express = require('express');
 const mongoCont = require('../controller/mongo.js');
-// const path = require('path')
+const {Price} = require('../DataBase/schema.js');
+const mongo = require('../DataBase/mongo');
 
 const app = express();
 const PORT = 8020;
@@ -14,4 +15,9 @@ app.listen(PORT, () => {
 });
 
 app.get('*/:id/db', mongoCont.get);
-// app.get('dbs', mongoCont.getAll);
+
+app.post('*/:id/db', mongoCont.post);
+
+app.put('*/:id/db', mongoCont.put);
+
+app.delete('*/:id/db', mongoCont.delete);
