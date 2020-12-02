@@ -46,38 +46,60 @@ http://localhost:8020/{id}/db
 
 > Response JSON:
 
-> [ { id: 1, homePrice: 500000}]
+> [ { id: 1, homePrice: 500000 } ]
 
 > `id: number`
 
 > `homePrice: number`
+
+> Failure HTTP Status Code: `404 Not Found`
+
+> Success HTTP Status Code: `200 OK`
 
 ### POST `{id}/db`
 
 > Request JSON:
 
-> [ { id: 1, homePrice: 500000}]
+> [ { id: 1, homePrice: 500000 } ]
 
 > `id: number`
 
 > `homePrice: number`
+
+> Failure HTTP Status Code: `406 Not Acceptable`
+
+> Success HTTP Status Code: `200 OK`
+
+> Success HTTP Response: `POST request success to database`
 
 ### PUT `{id}/db`
 
 > Request JSON:
 
-> [ { id: 1, homePrice: 500000}]
+> [ { id: 1, homePrice: 500000 } ]
 
 > `id: number`
 
 > `homePrice: number`
+
+> Failure HTTP Status Code: `404 Not Found`
+
+> Success HTTP Status Code: `200 OK`
+
+> Success HTTP Response: `PUT request success to database`
 
 ### DELETE `{id}/db`
 
 > Request JSON:
 
-> [ { id: 1, homePrice: 500000}]
+> [ { id: 1, homePrice: 500000 } ]
 
 > `id: number`
 
 > `homePrice: number`
+
+> Failure HTTP Status Code: `404 Not Found`
+
+> Success HTTP Status Code: `200 OK`
+
+> Success HTTP Response: `DELETE request success to database`

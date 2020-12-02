@@ -39,10 +39,11 @@ module.exports = {
           res.sendStatus(406);
           mongo.db.close();
         } else {
+          res.status(200);
+          res.send('POST request success to database');
           mongo.db.close();
         }
       })
-      res.send('POST request success to server');
     }
   },
   put: async (req, res) => {
@@ -57,11 +58,12 @@ module.exports = {
           res.sendStatus(404);
           mongo.db.close();
         } else {
+          res.status(200);
+          res.send('PUT request success to database');
           mongo.db.close();
         }
       })
     }
-    res.send('PUT request success to server');
   },
   delete: async (req, res) => {
     const {body} = req;
@@ -75,10 +77,11 @@ module.exports = {
           res.sendStatus(404);
           mongo.db.close();
         } else  {
+          res.status(200);
+          res.send('DELETE request success to database');
           mongo.db.close();
         }
       })
-      res.send('DELETE request success to server');
     }
   }
 };
