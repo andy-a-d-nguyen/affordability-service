@@ -31,6 +31,16 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+### Introduction
+
+In this project, my group is going to rebuild the server and database of an existing application to handle large quantities of data. We are working on a legacy codebase and extending the capabilities of the database and server layer to support production-level traffic.
+
+I am working on a service and a proxy within that application and ensuring that as I scale the server and database to production-level, the UI will continue to function.
+
+I will be using one SQL and one noSQL DBMS and compare their performance.I will be using a simulated dataset of 10 million records to analyze and tune the performance of each DBMS.
+
+The goal of this project is to deploy to a t2.micro instancee in AWS EC2 and have the instanc be able to handle 100 RPS, respond in under 2000ms and have an error rate of less than 1% under load. Before that can be accomplished, each member's proxy aims to handle 1,000 RPS on their local machine.
+
 ### Installing Dependencies
 
 From within the root directory:
