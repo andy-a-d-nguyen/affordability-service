@@ -7,7 +7,8 @@
     "production": "webpack",
     "test": "jest",
     "start": "nodemon server/index.js",
-    "seed": "node seed"
+    "seed": "node seed",
+    "seed-sdc": "node --max-old-space-size=8192 writeCSV.js"
   },
   "author": "Blake",
   "license": "ISC",

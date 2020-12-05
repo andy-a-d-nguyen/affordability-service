@@ -1,61 +1,87 @@
-const csv = require('fast-csv');
-const { writeToPath } = require('@fast-csv/format');
-const path  = require('path');
 const faker = require('faker');
-// const {addListings} = require('./addListings.js');
+const fs = require('fs');
 
-const generateRandomAPRUpTo4 = () => {
-  return parseFloat(((Math.random() * 4) + 1).toFixed(2));
-}
+const writeListings = fs.createWriteStream('listings.csv');
+writeListings.write('id,agentID,homePrice,location,propertyTax,thirtyYearAPR,fifteenYearAPR,sevenOneARMAPR,fiveOneARMAPR,VA30YearAPR,Jumbo30YearAPR\n', 'utf-8');
 
-const generateRandomAPRUpTo3 = () => {
-  return parseFloat(((Math.random() * 3) + 1).toFixed(2));
-}
-
-const generatePropertyTax = () => {
-  return parseFloat((Math.random() * 1).toFixed(2));
-}
-
-const generateLocation = () => {
-  return faker.address.streetAddress() + faker.address.city() + faker.address.state();
-}
-
-const addListings = (listings, counter) => {
-  let i = 1;
-
-  while (i <= counter) {
-    let listing = [
-      i,
-      Math.floor(Math.random() * (counter / 2)),
-      Math.floor((Math.random() * 2000000) + 400000),
-      generateLocation(),
-      generatePropertyTax(),
-      generateRandomAPRUpTo4(),
-      generateRandomAPRUpTo3(),
-      generateRandomAPRUpTo4(),
-      generateRandomAPRUpTo4(),
-      generateRandomAPRUpTo3(),
-      generateRandomAPRUpTo3(),
-    ];
-
-    listings.push(listing);
-    i++;
+const writeTenMillionListings = (writer, encoding, callback) => {
+  let i = 10000000;
+  let id = 0;
+  const write = () => {
+    let ok = true;
+    do {
+      i -= 1;
+      id += 1;
+      const agentID = Math.floor(Math.random() * (i / 2));
+      const homePrice = Math.floor((Math.random() * 2000000) + 400000);
+      const location = `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.state()}`;
+      const propertyTax = parseFloat((Math.random() * 1).toFixed(2));
+      const thirtyYearAPR = parseFloat(((Math.random() * 4) + 1).toFixed(2));
+      const fifteenYearAPR = parseFloat(((Math.random() * 3) + 1).toFixed(2));
+      const sevenOneARMAPR = parseFloat(((Math.random() * 4) + 1).toFixed(2));
+      const fiveOneARMAPR = parseFloat(((Math.random() * 4) + 1).toFixed(2));
+      const VA30YearAPR = parseFloat(((Math.random() * 3) + 1).toFixed(2));
+      const Jumbo30YearAPR = parseFloat(((Math.random() * 3) + 1).toFixed(2));
+      const listing = `${id},${agentID},${homePrice},${location},${propertyTax},${thirtyYearAPR},${fifteenYearAPR},${sevenOneARMAPR},${fiveOneARMAPR},${VA30YearAPR},${Jumbo30YearAPR}\n`;
+      if (i === 0) {
+        writer.write(listing, encoding, callback);
+      } else {
+        ok = writer.write(listing, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
   }
-};
-
-
-const data = [
-  ['id', 'agentID', 'homePrice', 'location', 'propertyTax', 'thirtyYearAPR', 'fifteenYearAPR', 'sevenOneARMAPR', 'fiveOneARMAPR', 'VA30YearAPR', 'Jumbo30YearAPR'],
-];
-
-async function wait(listings, counter) {
-  await addListings(listings, counter);
+  write();
 }
 
-wait(data, 1000000);
+writeTenMillionListings(writeListings, 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('success writing listings');
+    writeListings.end();
+  }
+})
 
-writeToPath(path.resolve(__dirname, 'seed.csv'), data)
-  .on('error', err => console.error(err))
-  .on('finish', () => console.log('Done writing.'));
+const writeAgents = fs.createWriteStream('agents.csv');
+writeAgents.write('id,name,age,rating,quantitySold,totalSales,gender,email\n', 'utf-8');
 
+const writeFiveMillionAgents = (writer, encoding, callback) => {
+  let i = 5000000;
+  let id = 0;
+  const write = () => {
+    let ok = true;
+    do {
+      i -= 1;
+      id += 1;
+      const name = faker.name.findName();
+      const age = Math.floor((Math.random() * 50) + 20);
+      const rating = parseFloat((Math.random() * 5).toFixed(2));
+      const quantitySold = Math.floor(Math.random() * 100);
+      const totalSales = Math.floor((Math.random() * 4000000) + 400000);
+      const gender = faker.commerce.productName();
+      const email = faker.internet.email();
+      const agent = `${id},${name},${age},${rating},${quantitySold},${totalSales},${gender},${email}\n`;
+      if (i === 0) {
+        writer.write(agent, encoding, callback);
+      } else {
+        ok = writer.write(agent, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
+  }
+  write();
+}
 
+writeFiveMillionAgents(writeAgents, 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('success writing agents');
+    writeAgents.end();
+  }
+})
