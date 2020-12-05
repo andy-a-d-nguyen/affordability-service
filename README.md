@@ -52,29 +52,111 @@ npm install
 
 http://localhost:8020/{id}/db
 
-### GET `{id}/db`
+### GET `listing/:id/mortgage/get`
 
-> Response JSON:
+> Example Response JSON:
 
-> [ { id: 1, homePrice: 500000 } ]
+```json
+{
+  id: 1,
+  agentInfo: {
+    id: 1,
+    name: 'House Seller',
+    age: 24,
+    rating: 4.3,
+    quantitySold: 20,
+    totalSales: 750000,
+    gender: 'male',
+    email: 'houseseller@house.com'
+  },
+  homePrice: 400000,
+  propertyTax: 1,
+  currentAvgAPR: {
+    thirtyYear: 2.80,
+    fifteenYear: 2.57,
+    sevenOneARM: 3.02,
+    fiveOneARM: 2.97,
+    VA30Year: 2.51,
+    Jumbo30Year: 2.98
+  },
+  location: 'San Francisco',
+}
+```
 
 > `id: number`
 
 > `homePrice: number`
+
+> `propertyTax: number`
+
+> `currentAvgAPR: object`
+
+> `currentAvgAPR.30Year: number`
+
+> `currentAvgAPR.15Year: number`
+
+> `currentAvgAPR.7/1ARM: number`
+
+> `currentAvgAPR.5/1ARM: number`
+
+> `currentAvgAPR.VA30Year: number`
+
+> `currentAvgAPR.Jumbo30Year: number`
 
 > Failure HTTP Status Code: `404 Not Found`
 
 > Success HTTP Status Code: `200 OK`
 
-### POST `{id}/db`
+### POST `listing/:id/mortgage/post`
 
-> Request JSON:
+> Example Request JSON:
 
-> [ { id: 1, homePrice: 500000 } ]
+```json
+{
+  id: 1,
+  agentInfo: {
+    id: 1,
+    name: 'House Seller',
+    age: 24,
+    rating: 4.3,
+    quantitySold: 20,
+    totalSales: 750000,
+    gender: 'male',
+    email: 'houseseller@house.com'
+  },
+  homePrice: 400000,
+  propertyTax: 1,
+  currentAvgAPR: {
+    thirtyYear: 2.80,
+    fifteenYear: 2.57,
+    sevenOneARM: 3.02,
+    fiveOneARM: 2.97,
+    VA30Year: 2.51,
+    Jumbo30Year: 2.98
+  },
+  location: 'San Francisco',
+}
+```
 
 > `id: number`
 
 > `homePrice: number`
+
+> `propertyTax: number`
+
+> `currentAvgAPR: object`
+
+> `currentAvgAPR.30Year: number`
+
+> `currentAvgAPR.15Year: number`
+
+> `currentAvgAPR.7/1ARM: number`
+
+> `currentAvgAPR.5/1ARM: number`
+
+> `currentAvgAPR.VA30Year: number`
+
+> `currentAvgAPR.Jumbo30Year: number`
 
 > Failure HTTP Status Code: `406 Not Acceptable`
 
@@ -82,15 +164,56 @@ http://localhost:8020/{id}/db
 
 > Success HTTP Response: `POST request success to database`
 
-### PUT `{id}/db`
+### PUT `listing/:id/mortgage/put`
 
-> Request JSON:
+> Example Request JSON:
 
-> [ { id: 1, homePrice: 500000 } ]
+```json
+{
+  id: 1,
+  agentInfo: {
+    id: 1,
+    name: 'House Seller',
+    age: 24,
+    rating: 4.3,
+    quantitySold: 20,
+    totalSales: 750000,
+    gender: 'male',
+    email: 'houseseller@house.com'
+  },
+  homePrice: 400000,
+  propertyTax: 1,
+  currentAvgAPR: {
+    thirtyYear: 2.80,
+    fifteenYear: 2.57,
+    sevenOneARM: 3.02,
+    fiveOneARM: 2.97,
+    VA30Year: 2.51,
+    Jumbo30Year: 2.98
+  },
+  location: 'San Francisco',
+}
+```
 
 > `id: number`
 
 > `homePrice: number`
+
+> `propertyTax: number`
+
+> `currentAvgAPR: object`
+
+> `currentAvgAPR.30Year: number`
+
+> `currentAvgAPR.15Year: number`
+
+> `currentAvgAPR.7/1ARM: number`
+
+> `currentAvgAPR.5/1ARM: number`
+
+> `currentAvgAPR.VA30Year: number`
+
+> `currentAvgAPR.Jumbo30Year: number`
 
 > Failure HTTP Status Code: `404 Not Found`
 
@@ -98,15 +221,56 @@ http://localhost:8020/{id}/db
 
 > Success HTTP Response: `PUT request success to database`
 
-### DELETE `{id}/db`
+### DELETE `listing/:id/mortgage/delete`
 
-> Request JSON:
+> Example Request JSON:
 
-> [ { id: 1, homePrice: 500000 } ]
+```json
+{
+  id: 1,
+  agentInfo: {
+    id: 1,
+    name: 'House Seller',
+    age: 24,
+    rating: 4.3,
+    quantitySold: 20,
+    totalSales: 750000,
+    gender: 'male',
+    email: 'houseseller@house.com'
+  },
+  homePrice: 400000,
+  propertyTax: 1,
+  currentAvgAPR: {
+    thirtyYear: 2.80,
+    fifteenYear: 2.57,
+    sevenOneARM: 3.02,
+    fiveOneARM: 2.97,
+    VA30Year: 2.51,
+    Jumbo30Year: 2.98
+  },
+  location: 'San Francisco',
+}
+```
 
 > `id: number`
 
 > `homePrice: number`
+
+> `propertyTax: number`
+
+> `currentAvgAPR: object`
+
+> `currentAvgAPR.30Year: number`
+
+> `currentAvgAPR.15Year: number`
+
+> `currentAvgAPR.7/1ARM: number`
+
+> `currentAvgAPR.5/1ARM: number`
+
+> `currentAvgAPR.VA30Year: number`
+
+> `currentAvgAPR.Jumbo30Year: number`
 
 > Failure HTTP Status Code: `404 Not Found`
 
