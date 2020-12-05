@@ -3,4 +3,6 @@ client/dist/bundle.js
 writeCSVnew.js
 
 # csv files
-.csv
+*.csv
+
+seed.csv
