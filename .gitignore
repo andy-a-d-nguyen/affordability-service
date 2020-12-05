@@ -1,2 +1,8 @@
 node_modules
 client/dist/bundle.js
+writeCSVnew.js
+
+# csv files
+*.csv
+
+seed.csv
