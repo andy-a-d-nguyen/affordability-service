@@ -10,9 +10,6 @@ listingSchema = {
   "rule" : {
     "type" : "object",
     "properties": {
-      "id": {
-        "type": "number",
-      },
       "agentID": {
         "type": "string",
       },
@@ -20,7 +17,7 @@ listingSchema = {
         "type": "number",
       },
       "location": {
-        "type": "number",
+        "type": "string",
       },
       "propertyTax": {
         "type": "number",
@@ -44,25 +41,19 @@ listingSchema = {
         "type": "number",
       }
     },
-    "required" : ["id", "agentID", "homePrice", "location", "propertyTax", "thirtyYearAPR", "fifteenYearAPR", "sevenOneARMAPR", "fiveOneARMAPR", "VA30YearAPR", "Jumbo30YearAPR"],
+    "required" : ["homePrice", "location", "propertyTax", "thirtyYearAPR", "fifteenYearAPR", "sevenOneARMAPR", "fiveOneARMAPR", "VA30YearAPR", "Jumbo30YearAPR"],
   },
   "level": "moderate",
   "message": "Listing Schema Validation Failed."
 }
-// collection = db.createCollection(
-//   name = "listings",
-//   schema = listingSchema
-// ).then(
-//   () => console.log('Collection "listings" created'),
-//   err => console.error('Failed to create collection:', err)
-// );
 
 collection = db.createCollection(
-  name = "listings",
+  name = "test",
   {
     keyOptions: {
       type: "autoincrement",
     },
+    schema: listingSchema
   }
 ).then(
   () => console.log('Collection "listings" created')
@@ -74,9 +65,6 @@ agentSchema = {
   "rule" : {
     "type" : "object",
     "properties": {
-      "id": {
-        "type": "number",
-      },
       "name": {
         "type": "string",
       },
@@ -99,7 +87,7 @@ agentSchema = {
         "type": "string",
       }
     },
-    "required" : ["id", "name", "age", "rating", "quantitySold", "totalSales", "gender", "email"],
+    "required" : ["name", "age", "rating", "quantitySold", "totalSales", "gender", "email"],
   },
   "level": "moderate",
   "message": "Agent Schema Validation Failed."
@@ -110,6 +98,7 @@ collection = db.createCollection(
     keyOptions: {
       type: "autoincrement",
     },
+    schema: agentSchema
   }
 ).then(
   () => console.log('Collection "agents" created')

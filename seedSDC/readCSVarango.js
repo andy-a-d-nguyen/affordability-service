@@ -7,7 +7,7 @@ const importCSVarango = async (filepath, collectionName) => {
   try {
     const { stdout, stderr } = await exec(`arangoimport --file "${filepath}" --type csv --collection "${collectionName}" --server.database sdc --server.password password`);
     console.log(`stdout:, ${stdout}`.green);
-    console.log(`stderr:, ${stderr}`.red);
+    if (stderr) console.log(`stderr:, ${stderr}`.red);
   } catch (err) {
     console.error(`${err}`.red);
   };
@@ -17,6 +17,13 @@ const importCSVarango = async (filepath, collectionName) => {
 
 // importCSVarango('/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/arangoAgents.csv', 'agents');
 
-importCSVarango('/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/test.csv', 'test');
+// importCSVarango('/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/test.csv', 'test');
 
-// arangoimport --file "/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/arangoListings.csv" --type csv --collection "listings" --server.database sdc --server.password password
+const importAll = async () => {
+  await importCSVarango('/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/arangoListings.csv', 'listings');
+  await importCSVarango('/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/arangoAgents.csv', 'agents');
+}
+
+// importAll();
+
+// ADD SCHEMA VALIDATION AFTER CSV FILES ARE LOADED INTO ARANGO. OTHERWISE STDOUT ERROR.

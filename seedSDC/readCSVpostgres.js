@@ -10,9 +10,9 @@ const client = new Client({
 
 client.connect();
 
-const insertListings = "COPY listings FROM '/home/andy/Desktop/HRSF_SDC/affordability-service/listings.csv' DELIMITER ',' CSV HEADER";
+const insertListings = "COPY listings FROM '/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/postgresListings.csv' DELIMITER ',' CSV HEADER";
 
-const insertAgents = "COPY agents FROM '/home/andy/Desktop/HRSF_SDC/affordability-service/agents.csv' DELIMITER ',' CSV HEADER";
+const insertAgents = "COPY agents FROM '/home/andy/Desktop/HRSF_SDC/affordability-service/seedSDC/postgresAgents.csv' DELIMITER ',' CSV HEADER";
 
 const createListingSeq = "CREATE SEQUENCE listings_id_seq OWNED BY listings.id";
 
