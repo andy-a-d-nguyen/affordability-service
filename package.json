@@ -8,7 +8,10 @@
     "test": "jest",
     "start": "nodemon server/index.js",
     "seed": "node seed",
-    "seed-sdc": "node --max-old-space-size=8192 writeCSV.js"
+    "create-schema": "node seedSDC/postgresSchema.js",
+    "create-csv": "node seedSDC/writeCSVpostgres.js",
+    "load-csv": "node seedSDC/readCSVpostgres.js",
+    "sdc-server": "nodemon pgServer/index.js"
   },
   "author": "Blake",
   "license": "ISC",
@@ -37,6 +40,7 @@
     "jest-enzyme": "^7.1.2",
     "jest-styled-components": "^7.0.3",
     "lorem-ipsum": "^2.0.3",
+    "newrelic": "^7.0.2",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
     "webpack": "^4.41.5",

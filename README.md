@@ -52,34 +52,23 @@ npm install
 
 http://localhost:8020/{id}/db
 
-### GET `listing/:id/mortgage/get`
+### GET `/mortgage/:id/get`
 
 > Example Response JSON:
 
 ```json
 {
-  id: 1,
-  agentInfo: {
-    id: 1,
-    name: 'House Seller',
-    age: 24,
-    rating: 4.3,
-    quantitySold: 20,
-    totalSales: 750000,
-    gender: 'male',
-    email: 'houseseller@house.com'
-  },
-  homePrice: 400000,
-  propertyTax: 1,
-  currentAvgAPR: {
-    thirtyYear: 2.80,
-    fifteenYear: 2.57,
-    sevenOneARM: 3.02,
-    fiveOneARM: 2.97,
-    VA30Year: 2.51,
-    Jumbo30Year: 2.98
-  },
-  location: 'San Francisco',
+    "id": 10000001,
+    "agentid": 2327699,
+    "homeprice": 704532,
+    "location": "2990 Dimitri Freeway",
+    "propertytax": 0.69,
+    "thirtyyearapr": 4.6,
+    "fifteenyearapr": 2.67,
+    "sevenonearmapr": 4.61,
+    "fiveonearmapr": 4.81,
+    "va30yearapr": 2.42,
+    "jumbo30yearapr": 3.72
 }
 ```
 
@@ -107,34 +96,23 @@ http://localhost:8020/{id}/db
 
 > Success HTTP Status Code: `200 OK`
 
-### POST `listing/:id/mortgage/post`
+### POST `/mortgage/:id/post`
 
 > Example Request JSON:
 
 ```json
 {
-  id: 1,
-  agentInfo: {
-    id: 1,
-    name: 'House Seller',
-    age: 24,
-    rating: 4.3,
-    quantitySold: 20,
-    totalSales: 750000,
-    gender: 'male',
-    email: 'houseseller@house.com'
-  },
-  homePrice: 400000,
-  propertyTax: 1,
-  currentAvgAPR: {
-    thirtyYear: 2.80,
-    fifteenYear: 2.57,
-    sevenOneARM: 3.02,
-    fiveOneARM: 2.97,
-    VA30Year: 2.51,
-    Jumbo30Year: 2.98
-  },
-  location: 'San Francisco',
+    "id": 10000001,
+    "agentid": 2327699,
+    "homeprice": 704532,
+    "location": "2990 Dimitri Freeway",
+    "propertytax": 0.69,
+    "thirtyyearapr": 4.6,
+    "fifteenyearapr": 2.67,
+    "sevenonearmapr": 4.61,
+    "fiveonearmapr": 4.81,
+    "va30yearapr": 2.42,
+    "jumbo30yearapr": 3.72
 }
 ```
 
@@ -164,34 +142,23 @@ http://localhost:8020/{id}/db
 
 > Success HTTP Response: `POST request success to database`
 
-### PUT `listing/:id/mortgage/put`
+### PUT `/mortgage/:id/put`
 
 > Example Request JSON:
 
 ```json
 {
-  id: 1,
-  agentInfo: {
-    id: 1,
-    name: 'House Seller',
-    age: 24,
-    rating: 4.3,
-    quantitySold: 20,
-    totalSales: 750000,
-    gender: 'male',
-    email: 'houseseller@house.com'
-  },
-  homePrice: 400000,
-  propertyTax: 1,
-  currentAvgAPR: {
-    thirtyYear: 2.80,
-    fifteenYear: 2.57,
-    sevenOneARM: 3.02,
-    fiveOneARM: 2.97,
-    VA30Year: 2.51,
-    Jumbo30Year: 2.98
-  },
-  location: 'San Francisco',
+    "id": 10000001,
+    "agentid": 2327699,
+    "homeprice": 704532,
+    "location": "2990 Dimitri Freeway",
+    "propertytax": 0.69,
+    "thirtyyearapr": 4.6,
+    "fifteenyearapr": 2.67,
+    "sevenonearmapr": 4.61,
+    "fiveonearmapr": 4.81,
+    "va30yearapr": 2.42,
+    "jumbo30yearapr": 3.72
 }
 ```
 
@@ -221,34 +188,23 @@ http://localhost:8020/{id}/db
 
 > Success HTTP Response: `PUT request success to database`
 
-### DELETE `listing/:id/mortgage/delete`
+### DELETE `/mortgage/:id/delete`
 
 > Example Request JSON:
 
 ```json
 {
-  id: 1,
-  agentInfo: {
-    id: 1,
-    name: 'House Seller',
-    age: 24,
-    rating: 4.3,
-    quantitySold: 20,
-    totalSales: 750000,
-    gender: 'male',
-    email: 'houseseller@house.com'
-  },
-  homePrice: 400000,
-  propertyTax: 1,
-  currentAvgAPR: {
-    thirtyYear: 2.80,
-    fifteenYear: 2.57,
-    sevenOneARM: 3.02,
-    fiveOneARM: 2.97,
-    VA30Year: 2.51,
-    Jumbo30Year: 2.98
-  },
-  location: 'San Francisco',
+    "id": 10000001,
+    "agentid": 2327699,
+    "homeprice": 704532,
+    "location": "2990 Dimitri Freeway",
+    "propertytax": 0.69,
+    "thirtyyearapr": 4.6,
+    "fifteenyearapr": 2.67,
+    "sevenonearmapr": 4.61,
+    "fiveonearmapr": 4.81,
+    "va30yearapr": 2.42,
+    "jumbo30yearapr": 3.72
 }
 ```
 
