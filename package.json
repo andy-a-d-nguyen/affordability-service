@@ -11,7 +11,8 @@
     "create-schema": "node seedSDC/postgresSchema.js",
     "create-csv": "node seedSDC/writeCSVpostgres.js",
     "load-csv": "node seedSDC/readCSVpostgres.js",
-    "sdc-server": "nodemon pgServer/index.js"
+    "sdc-server": "nodemon pgServer/index.js",
+    "stress-test": "k6 run testSDC/stress-test.js"
   },
   "author": "Blake",
   "license": "ISC",
