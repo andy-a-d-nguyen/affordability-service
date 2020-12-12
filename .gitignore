@@ -6,3 +6,4 @@ readCSVtest.js
 
 # csv files
 *.csv
+*.log
