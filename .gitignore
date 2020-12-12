@@ -6,4 +6,9 @@ readCSVtest.js
 
 # csv files
 *.csv
+
+# new relic log
 *.log
+
+# AWS EC2 key
+*.pem
