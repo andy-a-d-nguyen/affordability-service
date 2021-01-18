@@ -1,6 +1,4 @@
-# Project Name
-
-> Trulia SDC
+# Trula Backend Scaling
 
 ## Related Projects
 

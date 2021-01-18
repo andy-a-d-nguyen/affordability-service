@@ -12,3 +12,6 @@ readCSVtest.js
 
 # AWS EC2 key
 *.pem
+
+# bash scripts
+*.sh

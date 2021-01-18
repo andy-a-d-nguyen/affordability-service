@@ -1,5 +1,5 @@
 {
-  "name": "hackreactor-groceries",
+  "name": "trulia-backend-scaling",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -14,7 +14,7 @@
     "sdc-server": "nodemon pgServer/index.js",
     "stress-test": "k6 run testSDC/stress-test.js"
   },
-  "author": "Blake",
+  "author": "Andy Nguyen",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
