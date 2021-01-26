@@ -1,4 +1,4 @@
-# Trula Backend Scaling
+# Trulia Backend Scaling
 
 ## Related Projects
 
